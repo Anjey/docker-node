@@ -1,0 +1,12 @@
+version: '3.0'
+services:
+  node:
+    build:
+      dockerfile: ./
+    restart: always
+    container-name: node
+    environment:
+      - PORT=8080
+    ports:
+      - "80:8080"
+    
