@@ -1,11 +1,16 @@
 version: '3.0'
 services:
   node:
-    build: .
-    restart: always
+    build: ./app
+    restart: on-failure
     container_name: node
     environment:
-      - PORT=8080
+      - PORT=${PORT}
+  nginx:
+    build: ./nginx
+    restart: on-failure
+    environment:
+      - PORT=${PORT}
     ports:
-      - "80:8080"
+      - "80:${PORT}"
 
