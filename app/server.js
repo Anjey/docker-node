@@ -1,15 +1,16 @@
 'use strict';
 
+var os = require('os');
 const express = require('express');
 const ip = require('ip');
 const ipAddress = ip.address();
 //const port = 8080;
 const host = '0.0.0.0';
-
+var hostname = os.hostname();
 
 const app = express();
 app.get('/', (req, res) => {
-  res.send(`Hello World from ${ipAddress}`);
+  res.send(`Hello World from ${ipAddress} on ${hostname}`);
 });
 app.get("/health", (req, res) => {
   res.send("OK");

@@ -3,12 +3,10 @@ services:
   node:
     build: ./app
     restart: on-failure
-    container_name: node
-    hostname: node
     environment:
       - PORT=${PORT}
-    ports:
-      - "8081:${PORT}"
+    scale: 2
+    
   nginx:
     build: ./nginx
     container_name: nginx
@@ -16,7 +14,7 @@ services:
     environment:
       - PORT=${PORT}
     ports:
-      - "80:${PORT}"
+      - "80:80"
     depends_on:
       - node
 

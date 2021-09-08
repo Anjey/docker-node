@@ -7,5 +7,5 @@ RUN apk update && apk --no-cache add \
     curl \
     && rm -rf /var/cache/apk/*
 HEALTHCHECK --interval=5s --timeout=2s --retries=3 \  
-    CMD curl -sS 127.0.0.1:${PORT}/health || exit 1
+    CMD ./healthcheck.sh
 CMD [ "node", "server.js" ]
