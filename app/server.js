@@ -10,7 +10,7 @@ var hostname = os.hostname();
 
 const app = express();
 app.get('/', (req, res) => {
-  res.send(`Hello World from ${ipAddress} on ${hostname}`);
+  res.send(`Hello World from ip: ${ipAddress} on hostname: ${hostname}`);
 });
 app.get("/health", (req, res) => {
   res.send("OK");
