@@ -1,2 +1,2 @@
-FROM nginx
-COPY nginx.conf /etc/nginx/conf.d/nginx.conf
+FROM nginx:latest
+COPY nginx.conf /etc/nginx/conf.d/default.conf

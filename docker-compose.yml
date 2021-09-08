@@ -4,13 +4,19 @@ services:
     build: ./app
     restart: on-failure
     container_name: node
+    hostname: node
     environment:
       - PORT=${PORT}
+    ports:
+      - "8081:${PORT}"
   nginx:
     build: ./nginx
+    container_name: nginx
     restart: on-failure
     environment:
       - PORT=${PORT}
     ports:
       - "80:${PORT}"
+    depends_on:
+      - node
 
