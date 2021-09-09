@@ -1,7 +1,7 @@
-FROM node:alpine
+FROM node:14.17.6-alpine3.14
 WORKDIR /usr/src/app
 COPY package*.json ./
-RUN npm install && npm install ip
+RUN npm install
 COPY . .
 RUN apk update && apk --no-cache add \
     curl \
